@@ -1,0 +1,25 @@
+<% include header %>
+
+        <div class="apollo">
+            <div class="apollo-container clearfix">
+                <div class="apollo-registering">
+
+                        <h2>Thanks<span class="user-name"></span>!</h2>
+                        <p><strong>Here is your sign up data </strong></p>
+                            <% if(data) { %>
+                                <p>Email: <%= data['email'] %></p>
+                                <p>Uid: <%= data['uid'] %></p>
+                                <form method="post" action="/logout">
+                                    <input class="btn btn-primary" type="submit" value="Logout">
+                                </form>
+
+                            <% } else { %>
+                            <p>No data is received</p>
+                            <% }  %> </p>
+                </div>
+
+            </div>
+        </div>
+
+
+<% include footer %>

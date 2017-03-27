@@ -1,0 +1,57 @@
+<% include header %>
+
+        <div class="apollo">
+            <div class="apollo-container clearfix">
+                <div class="apollo-registering">
+
+                        <h2>Thanks<span class="user-name"></span>!</h2>
+                        <p><strong>Here is your login data </strong></p>
+                            <% if(data) { %>
+                                <p>Email: <%= data['email'] %></p>
+                                <p>Uid: <%= data['uid'] %></p>
+                                <form method="post" action="/logout">
+									<a href="javascript:void(0);" class="btn btn-primary" id="put-data-button">Add new book</a>
+									<input class="btn btn-primary" type="submit" value="Logout">
+                                </form>
+						<div id="book-data">
+							<% if(books) { %>
+
+								<div class="table-responsive">
+									<table class="table table-hover table-striped">
+									<thead>
+										<tr>
+											<th>Author</th>
+											<th>Author Image</th>
+											<th>Title</th>
+											<th>Image</th>
+											<th>Price</th>
+											<th>Short Description</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% for(var id in books) { %>
+										<% book = books[id] %>
+										<tr>
+											<td><%= book.author %></td>
+											<td><img class="img-responsive img-thumbnail" src="<%= book.author_image %>" alt=""></td>
+											<td><%= book.title %></td>
+											<td><img width="15%" class="img-responsive img-thumbnail" src="<%= book.image %>" alt=""> </td>
+											<td><%= book.price %></td>
+											<td><%= book.short_description %></td>
+										</tr>
+										<% } %>
+									</tbody>
+								</table>
+								</div>
+									<% } %>
+									<% } else { %>
+									<p>No data is received</p>
+									<% }  %> </p>
+						</div>
+
+
+            </div>
+        </div>
+
+
+<% include footer %>
